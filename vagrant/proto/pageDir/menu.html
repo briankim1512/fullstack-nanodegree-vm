@@ -1,13 +1,22 @@
 <html>
     <body>
         <h1>{{ restaurantName }}</h1>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+            {% for message in messages %}
+                <li><strong>{{ message }}</strong></li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+        <h2><a href={{ url_for('newMenuItem', restaurant_id=restaurantId) }}>Make a new menu item</a></h2><br>
         {% for i in listMenu %}
         {{ i[0] }}<br>
         {{ i[1] }}<br>
         {{ i[2] }}<br>
-        <a href={{ url_for('newRestMenu', restaurant_id=restaurantId) }}>New</a><br>
-        <a href={{ url_for('editRestMenu', restaurant_id=restaurantId, menu_id=i[3], modifier='edit') }}>Edit</a><br>
-        <a href={{ url_for('editRestMenu', restaurant_id=restaurantId, menu_id=i[3], modifier='delete') }}>Delete</a><br>
+        <a href={{ url_for('editMenuItem', restaurant_id=restaurantId, menu_id=i[3], modifier='edit') }}>Edit</a><br>
+        <a href={{ url_for('editMenuItem', restaurant_id=restaurantId, menu_id=i[3], modifier='delete') }}>Delete</a><br>
         <br>
         {% endfor %}
     </body>

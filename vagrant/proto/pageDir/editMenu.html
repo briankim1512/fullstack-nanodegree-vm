@@ -1,5 +1,17 @@
 <html>
     <body>
-        <p1>Objective 2 complete!</p1>
+        <h1>Edit the menu item:</h1>
+        <form action="{{ url_for('editMenuItem', restaurant_id=restaurant_id, menu_id=menu_id, modifier='edit') }}"
+        method='post'>
+            <p>Name:</p>
+                <input type='text' size='20' name='name'><br>
+            <p>Course:</p>
+                <input type='text' size='20' name='course'><br>
+            <p>Description:</p>
+                <input type='text' size='50' name='description'><br>
+            <p>Price:</p>
+                <input type='text' size='10' name='price'><br>            
+            <input type='submit' value='Edit'>
+        </form>
     </body>
 <html>
