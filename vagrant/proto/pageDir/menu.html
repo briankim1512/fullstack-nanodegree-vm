@@ -1,0 +1,14 @@
+<html>
+    <body>
+        <h1>{{ restaurantName }}</h1>
+        {% for i in listMenu %}
+        {{ i[0] }}<br>
+        {{ i[1] }}<br>
+        {{ i[2] }}<br>
+        <a href={{ url_for('newRestMenu', restaurant_id=restaurantId) }}>New</a><br>
+        <a href={{ url_for('editRestMenu', restaurant_id=restaurantId, menu_id=i[3], modifier='edit') }}>Edit</a><br>
+        <a href={{ url_for('editRestMenu', restaurant_id=restaurantId, menu_id=i[3], modifier='delete') }}>Delete</a><br>
+        <br>
+        {% endfor %}
+    </body>
+<html>
